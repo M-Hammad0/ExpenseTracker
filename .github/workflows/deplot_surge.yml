@@ -1,4 +1,4 @@
-name: Jekyll site CI
+name: Expense Tracker CI
 
 on:
   push:
