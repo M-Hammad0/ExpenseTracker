@@ -1,5 +1,7 @@
 import React, { useState, useContext } from "react";
 import { GlobalContext } from "../Context/GlobalState";
+import { ThemeContext } from "./../Context/ThemeContext";
+
 
 export default function AddTransaction() {
       
@@ -20,9 +22,12 @@ export default function AddTransaction() {
         addTransaction(newTransaction);
       }
 
+      const { isDark, light, dark } = useContext(ThemeContext);
+      const mode = isDark ? dark : light;
+
 
   return (
-    <div>
+    <div style={{color: mode.syntax}}>
       <h3>Add new transaction</h3>
       <form onSubmit={onSubmit}>
         <div className="form-control">
@@ -36,7 +41,7 @@ export default function AddTransaction() {
           </label>
           <input type="number" value={amount} onChange={(event) => setAmount(event.target.value)} placeholder="Enter amount..." />
         </div>
-        <button className="btn">Add transaction</button>
+        <button style={{background: mode.syntax2}} className="btn">Add transaction</button>
       </form>
     </div>
   );

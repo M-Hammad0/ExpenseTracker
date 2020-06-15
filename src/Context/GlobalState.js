@@ -1,11 +1,11 @@
 import React, {createContext, useReducer} from 'react'
 import AppReducer from "./AppReducer";
 const initialState = {
-       transactions: [
-            ]
+       transactions: []
 }
 
 export const GlobalContext = createContext(initialState);
+
 
 
 export const GlobalProvider = (props) => {
@@ -33,3 +33,4 @@ export const GlobalProvider = (props) => {
             {props.children}
       </GlobalContext.Provider>)
 }
+
